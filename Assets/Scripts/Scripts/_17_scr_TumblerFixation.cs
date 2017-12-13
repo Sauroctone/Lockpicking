@@ -7,6 +7,7 @@ public class _17_scr_TumblerFixation : MonoBehaviour {
 	Rigidbody rb;
 	AudioSource source;
 	_17_scr_TimeManager manager;
+	_17_scr_MouseFollow player;
 
 	void Start()
 	{
@@ -17,15 +18,25 @@ public class _17_scr_TumblerFixation : MonoBehaviour {
 		source = GetComponent<AudioSource> ();
 	}
 
+	void OnCollisionEnter(Collision col)
+	{
+		if (player == null && col.transform.GetComponent<_17_scr_MouseFollow> () != null) 
+		{
+			player = col.transform.GetComponent<_17_scr_MouseFollow> ();
+		}
+	}
+
 	void OnTriggerEnter()
 	{
 		StartCoroutine (Fixate ());
+		player.StartCoroutine (player.Fixate ());
 	}
 
 	IEnumerator Fixate ()
 	{
 		//source.pitch = Random.Range (0.95f, 1.05f);
 		source.Play ();
+		Camera.main.GetComponent<_17_scr_ScreenShakeGenerator> ().ShakeScreen (0.1f, 0.05f);
 
 		SpringJoint joint = GetComponent<SpringJoint> ();
 		joint.breakForce = 0;

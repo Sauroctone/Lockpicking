@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 
 public class _17_scr_CollisionWithWalls : MonoBehaviour {
 
@@ -14,7 +14,9 @@ public class _17_scr_CollisionWithWalls : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col)
 	{
-		if (col.GetComponent<_17_tag_Wall> () != null && manager.state == GameState.Ticking)
-			manager.Lose();
+		if (col.GetComponent<_17_tag_Wall> () != null && manager.state == GameState.Ticking) 
+		{
+			manager.Lose ();
+		}
 	}
 }

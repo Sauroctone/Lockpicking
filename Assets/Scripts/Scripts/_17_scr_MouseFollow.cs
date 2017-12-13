@@ -10,6 +10,8 @@ public class _17_scr_MouseFollow : MonoBehaviour {
 	Vector3 movement;
 
 	public float rotSpeed;
+	bool isFixating;
+	public float fixateTime;
 
 	void Start()
 	{
@@ -23,7 +25,8 @@ public class _17_scr_MouseFollow : MonoBehaviour {
 	{
 		mousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 
-		rb.MovePosition (new Vector3 (mousePos.x, mousePos.y, transform.position.z));
+		if (!isFixating)
+			rb.MovePosition (new Vector3 (mousePos.x, mousePos.y, transform.position.z));
 
 		movement = transform.position - prevPos;
 
@@ -36,5 +39,12 @@ public class _17_scr_MouseFollow : MonoBehaviour {
 		
 
 		prevPos = transform.position;
+	}
+
+	public IEnumerator Fixate()
+	{
+		isFixating = true;
+		yield return new WaitForSeconds (fixateTime);
+		isFixating = false;
 	}
 }

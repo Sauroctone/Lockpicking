@@ -1,10 +1,11 @@
 fileFormatVersion: 2
 guid: 70c6aa9f170d02348bb45ef6e00e1168
-timeCreated: 1513074821
+timeCreated: 1513115794
 licenseType: Free
 ShaderImporter:
   externalObjects: {}
-  defaultTextures: []
+  defaultTextures:
+  - _KeyHole: {fileID: 2800000, guid: d16fb8524eb6c9c429e5bc5e1102d114, type: 3}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
