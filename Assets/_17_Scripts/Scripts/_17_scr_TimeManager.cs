@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+//using UnityEngine.SceneManagement;
 
 public class _17_scr_TimeManager : MonoBehaviour {
 
@@ -58,7 +58,7 @@ public class _17_scr_TimeManager : MonoBehaviour {
 		{
 			if (Input.GetKeyDown (KeyCode.Space)) 
 			{
-				SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+				//SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
 			}
 		}
 	}
@@ -130,6 +130,8 @@ public class _17_scr_TimeManager : MonoBehaviour {
 		}
 
 		winText.SetActive (true);
+		//yield return new WaitForSeconds (4);
+		//GetComponent<Transition> ().Win ();
 	}
 
 	IEnumerator Loss()
@@ -153,5 +155,8 @@ public class _17_scr_TimeManager : MonoBehaviour {
 		}
 
 		failText.SetActive (true);
+
+		//yield return new WaitForSeconds (4);
+		//GetComponent<Transition> ().Lose ();
 	}
 }
